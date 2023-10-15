@@ -6,10 +6,10 @@ import os
 import sys
 import sqlite3
 import SQLManager
-import keyboard
+# import keyboard
 import pymem
 from pymem import Pymem
-from pick import pick
+# from pick import pick
 from win32com.shell import shell
 
 
@@ -49,8 +49,8 @@ def main():
     
     wx =  WechatManager
     ret = wx.Wechat(wechat).GetUserBasicInfo(keyAddress)
-    wxid = ret[1]
-    wxprofile = ret[2]
+    wxid = ret[0]
+    wxprofile = ret[1]
 
     # 自动获取文件路径
     win_user = os.path.expandvars('$HOMEPATH')
@@ -59,8 +59,10 @@ def main():
     if wx_config.read() == 'MyDocument:':
         wx_path = shell.SHGetFolderPath(0, 5, None, 0)+"\\WeChat Files\\"+wxid+"\\Msg" # 如果目录在 文档 下
     else:
-        wx_path = wx_config.read() + "\\WeChat Files\\"+wxid+"\\Msg"
-    dir_path = wx_path + "\\Multi"
+        # wx_path = wx_config.read() + "\\WeChat Files\\"+wxid+"\\Msg"
+        wx_path = 'D:\\WeChat' + "\\WeChat Files\\"+wxid+"\\Msg"
+    # dir_path = wx_path + "\\Multi"
+    dir_path = 'D:\\WeChat\\WeChat Files\\wxid_7hfq7grefrag22\\Msg\\Multi'
 
     print("[+]微信号: "+wxprofile+" 工作路径: "+wx_path)
 
