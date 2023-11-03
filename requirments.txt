@@ -1,0 +1,9 @@
+pymem
+pycryptodome
+pywin32
+numpy
+pillow
+matplotlib
+jieba
+wordcloud
+stylecloud
