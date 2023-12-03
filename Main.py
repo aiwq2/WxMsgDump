@@ -203,7 +203,10 @@ def GUI():
         analyzing.pack()
 
         outputPath=main(wx_path,name)
-        analyze(outputPath)
+        print(outputPath)
+        save_text_path='result.txt'
+        save_img_path='result_img.jpg'
+        analyze(outputPath,save_text_path,save_img_path,start_time,end_time)
 
 
     root=Tk()

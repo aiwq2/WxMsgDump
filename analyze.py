@@ -2,7 +2,7 @@
 import pandas as pd
 import os
 
-def analyze(file_name,start_time,end_time):
+def analyze(file_name,save_text_path,save_img_path,start_time,end_time):
     with open(file_name,'r',encoding='utf-8-sig') as f:
         lines=f.readlines()
         first_line=lines[0]
@@ -78,18 +78,19 @@ def analyze(file_name,start_time,end_time):
 
 
     # 保存微信记录相关消息的地址
-    file_save_info='info.txt'
     user_name='lzh'
     opposite_name='hwq'
 
-    with open(file_save_info,'w',encoding='utf-8') as out:
+    with open(save_text_path,'w',encoding='utf-8') as out:
         out.write('微信主名字:{},对方名字:{}\n'.format(user_name,opposite_name))
         out.write('消息总条数:{},微信主消息数:{},对方消息数:{}\n'.format(msg_num_all,msg_me,msg_you))
         # out.write('统计词为:{},所对应的频数为:{}\n'.format(frquent_words,words_count))
         out.write('统计词对应的频数{}\n'.format(words_count_dict))
         out.write('每天发消息0-24小时时间统计:{}\n'.format(time_count))
         out.write('发消息最多的一天是:{}年{}月{}日,一共{}条\n'.format(max_msg_year,max_msg_month,max_msg_day,max_msg_day_num))
-    print('结果写入{}成功'.format(file_save_info))
+    print('结果写入{}成功'.format(save_text_path))
+
+    
 if __name__=='__main__':
     analyze(file_name='微信聊天导出\hwqh h15709438996(wxid_x5gmcr15xi3b22).csv',
             start_time='2022-10-29',
